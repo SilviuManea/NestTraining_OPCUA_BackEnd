@@ -4,12 +4,16 @@ import {
   DataValue,
   OPCUAClient,
   StatusCodes,
-  TimestampsToReturn,
+  TimestampsToReturn
 } from 'node-opcua';
 
 @Injectable()
 export class PlcService {
+
+  
   // This block will launch each time the backend is launched
+
+  
   async onModuleInit() {
     console.log(`Initialization PLC Connection...`);
 
@@ -39,6 +43,7 @@ export class PlcService {
 
       // Checking the SessionID
       console.log('Session ID => ', session.sessionId.value);
+      //this.logsilviu.log('Session ID => ', session.sessionId.value);
 
       //TODO: Research BROWSE functionality in the future - not enabled for now
 
@@ -85,7 +90,7 @@ export class PlcService {
         .on('keepalive', () => console.log('keepalive'))
         .on('terminated', () => console.log('subscription terminated'));
 
-      console.log('Subscription ID => ', subscription.subscriptionId);
+      console.log('Subscription ID => '+ subscription.subscriptionId.toString());
 
       const monitoredItem = await subscription.monitor(
         {
