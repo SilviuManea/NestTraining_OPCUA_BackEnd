@@ -11,10 +11,11 @@ import {
 export class PlcService {
 
   
-  // This block will launch each time the backend is launched
-
-  
   async onModuleInit() {
+
+  }
+  
+  async LanzaConexion_PLCSim(){
     console.log(`Initialization PLC Connection...`);
 
     // Read PLC Endpoints from DB (Or hardcoded for now)
@@ -145,4 +146,6 @@ export class PlcService {
       console.log('Error !!!', err);
     }
   }
+
+
 }

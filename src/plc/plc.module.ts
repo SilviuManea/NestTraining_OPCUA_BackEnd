@@ -4,6 +4,7 @@ import { PlcService } from './plc.service';
 
 @Module({
   controllers: [PlcController],
-  providers: [PlcService]
+  providers: [PlcService],
+  exports: [PlcService],
 })
 export class PlcModule {}
